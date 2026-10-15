@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cours de Maths & Informatique – Lycée</title>
+<meta name="description" content="Cours de mathématiques et d'informatique pour les lycéens, de la 1ère année au Bac, avec un ingénieur informatique.">
+<style>
+:root{--bg:#f7f8fc;--fg:#1b2033;--card:#fff;--accent:#2563eb;--green:#25d366;--muted:#5b6478}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1220;--fg:#eef0f8;--card:#1a1f35;--muted:#9aa3bd}}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+header{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:56px 0;text-align:center}
+header h1{margin:0 0 12px;font-size:clamp(1.8rem,5vw,2.8rem)}
+header p{margin:0 auto 24px;max-width:600px;opacity:.95}
+.btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:999px;font-size:1.1rem;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.btn:hover{filter:brightness(1.08)}
+section{padding:40px 0}
+h2{margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--card);border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.card h3{margin:0 0 8px}
+.card p,.card li{color:var(--muted);margin:0}
+ul{padding-left:18px;margin:0}
+.rtl{direction:rtl;text-align:right}
+.cta{text-align:center}
+footer{text-align:center;color:var(--muted);padding:24px 0;font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>📐 Maths &amp; 💻 Informatique</h1>
+    <p>Cours pour lycéens de la <strong>1ère année jusqu'au Bac</strong>, donnés par un <strong>ingénieur informatique</strong>.</p>
+    <a class="btn" id="join" href="#">Rejoindre le groupe WhatsApp</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Matières</h2>
+    <div class="grid">
+      <div class="card"><h3>Mathématiques</h3><ul><li>Analyse, algèbre, géométrie</li><li>Probabilités &amp; statistiques</li><li>Exercices type Bac</li></ul></div>
+      <div class="card"><h3>Informatique</h3><ul><li>Algorithmique &amp; programmation</li><li>Bases de données</li><li>Préparation aux examens</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Niveaux</h2>
+    <div class="grid">
+      <div class="card"><h3>1ère année</h3><p>Bien démarrer le lycée.</p></div>
+      <div class="card"><h3>2ème &amp; 3ème année</h3><p>Consolider les bases et progresser.</p></div>
+      <div class="card"><h3>Bac</h3><p>Révisions, séries d'exercices, sujets corrigés.</p></div>
+    </div>
+  </section>
+
+  <section class="rtl">
+    <h2>دروس في الرياضيات والإعلامية</h2>
+    <p>دروس لتلاميذ المعاهد من السنة الأولى إلى الباكالوريا، يقدّمها مهندس في الإعلامية. للانضمام اضغط على الزر وادخل إلى مجموعة الواتساب.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Comment participer ?</h2>
+    <p>Clique sur le bouton, rejoins le groupe WhatsApp et tu recevras toutes les infos (horaires, niveaux, tarifs).</p>
+    <a class="btn" id="join2" href="#">Rejoindre le groupe WhatsApp</a>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> — <span id="name">Ingénieur informatique</span></footer>
+
+<script>
+// ⚠️ Modifier ici : lien du groupe WhatsApp et nom
+const CONFIG = {
+  whatsappLink: "https://chat.whatsapp.com/REMPLACER_PAR_TON_LIEN",
+  name: "Ingénieur informatique"
+};
+document.getElementById("join").href = CONFIG.whatsappLink;
+document.getElementById("join2").href = CONFIG.whatsappLink;
+document.getElementById("name").textContent = CONFIG.name;
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

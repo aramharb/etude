@@ -1,8 +1,10 @@
-# Cours de Maths & Informatique – Lycée
+# Cours particuliers – Maths, Physique, Mécanique, Informatique (Tunisie)
 
-Page d'annonce (HTML/CSS pur) hébergée sur GitHub Pages.
+Page promotionnelle statique (HTML / CSS / JS) en 3 langues : عربي, Français, English.
 
-Pour changer le lien WhatsApp et le nom : modifier l'objet `CONFIG` à la fin de `index.html`.
+- **Numéros WhatsApp** : modifier `CONFIG` au début de `script.js`.
+- **Photos** : dossier `photos/`.
+- **Textes / langues** : objet `I18N` dans `script.js`.
 
 Déploiement : automatique via GitHub Actions à chaque push sur `main`
 (Settings → Pages → Source : **GitHub Actions**).

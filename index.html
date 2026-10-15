@@ -1,84 +1,127 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cours de Maths & Informatique – Lycée</title>
-<meta name="description" content="Cours de mathématiques et d'informatique pour les lycéens, de la 1ère année au Bac, avec un ingénieur informatique.">
-<style>
-:root{--bg:#f7f8fc;--fg:#1b2033;--card:#fff;--accent:#2563eb;--green:#25d366;--muted:#5b6478}
-@media(prefers-color-scheme:dark){:root{--bg:#0f1220;--fg:#eef0f8;--card:#1a1f35;--muted:#9aa3bd}}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
-.wrap{max-width:900px;margin:0 auto;padding:0 16px}
-header{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:56px 0;text-align:center}
-header h1{margin:0 0 12px;font-size:clamp(1.8rem,5vw,2.8rem)}
-header p{margin:0 auto 24px;max-width:600px;opacity:.95}
-.btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;text-decoration:none;padding:14px 28px;border-radius:999px;font-size:1.1rem;box-shadow:0 4px 14px rgba(0,0,0,.25)}
-.btn:hover{filter:brightness(1.08)}
-section{padding:40px 0}
-h2{margin:0 0 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:var(--card);border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.card h3{margin:0 0 8px}
-.card p,.card li{color:var(--muted);margin:0}
-ul{padding-left:18px;margin:0}
-.rtl{direction:rtl;text-align:right}
-.cta{text-align:center}
-footer{text-align:center;color:var(--muted);padding:24px 0;font-size:.9rem}
-</style>
+<title>Cours particuliers – Maths, Physique, Mécanique, Informatique | Tunisie</title>
+<meta name="description" content="Cours particuliers en Tunisie avec des ingénieurs : mathématiques, physique, mécanique et informatique. Contactez-nous sur WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <h1>📐 Maths &amp; 💻 Informatique</h1>
-    <p>Cours pour lycéens de la <strong>1ère année jusqu'au Bac</strong>, donnés par un <strong>ingénieur informatique</strong>.</p>
-    <a class="btn" id="join" href="#">Rejoindre le groupe WhatsApp</a>
+
+<nav class="topbar">
+  <div class="wrap bar">
+    <a class="logo" href="#top">📚 <span data-i18n="brand">Cours Ingénieurs</span></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="ar">عربي</button>
+      <button data-lang="fr" class="active">FR</button>
+      <button data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap hero-in">
+    <span class="badge" data-i18n="badge">🇹🇳 Cours particuliers en Tunisie</span>
+    <h1 data-i18n-html="title">Réussis tes études avec des <em>ingénieurs</em></h1>
+    <p class="lead" data-i18n="lead">Maths, physique, mécanique et informatique : des explications claires, des exercices corrigés et un suivi personnalisé jusqu'au Bac et à l'université.</p>
+    <div class="cta-row">
+      <a class="btn wa" href="#teachers" data-i18n="ctaMain">💬 Choisis ton professeur</a>
+    </div>
+    <ul class="stats">
+      <li><b>2</b><span data-i18n="stat1">Ingénieurs</span></li>
+      <li><b>4</b><span data-i18n="stat2">Matières</span></li>
+      <li><b>100%</b><span data-i18n="stat3">Suivi personnalisé</span></li>
+    </ul>
   </div>
 </header>
 
-<main class="wrap">
-  <section>
-    <h2>Matières</h2>
-    <div class="grid">
-      <div class="card"><h3>Mathématiques</h3><ul><li>Analyse, algèbre, géométrie</li><li>Probabilités &amp; statistiques</li><li>Exercices type Bac</li></ul></div>
-      <div class="card"><h3>Informatique</h3><ul><li>Algorithmique &amp; programmation</li><li>Bases de données</li><li>Préparation aux examens</li></ul></div>
+<main>
+  <section id="teachers" class="wrap">
+    <h2 data-i18n="teamTitle">Tes professeurs</h2>
+    <p class="sub" data-i18n="teamSub">Deux ingénieurs passionnés, une seule mission : ta réussite.</p>
+    <div class="teachers">
+
+      <article class="teacher">
+        <div class="photo" data-initials="AY">
+          <img src="photos/aram-head.jpg" alt="Aram" onerror="this.remove()">
+        </div>
+        <h3 data-i18n="t1Name">Aram</h3>
+        <p class="role" data-i18n="t1Role">Ingénieur en informatique</p>
+        <div class="chips">
+          <span data-i18n="mMath">📐 Mathématiques</span>
+          <span data-i18n="mCS">💻 Informatique</span>
+        </div>
+        <p class="desc" data-i18n="t1Desc">Algorithmique, programmation, bases de données et maths expliquées simplement avec des exemples concrets.</p>
+        <a class="btn wa full" id="wa1" target="_blank" rel="noopener" href="#" data-i18n="wa">Contacter sur WhatsApp</a>
+      </article>
+
+      <article class="teacher">
+        <div class="photo alt" data-initials="YB">
+          <img src="photos/yassine-head.jpg" alt="Yassine Bourbia" onerror="this.remove()">
+        </div>
+        <h3 data-i18n="t2Name">Yassine Bourbia</h3>
+        <p class="role" data-i18n="t2Role">Ingénieur en mécatronique</p>
+        <div class="chips">
+          <span data-i18n="mMath">📐 Mathématiques</span>
+          <span data-i18n="mPhys">⚛️ Physique</span>
+          <span data-i18n="mMeca">⚙️ Mécanique</span>
+        </div>
+        <p class="desc" data-i18n="t2Desc">Des cours de maths, physique et mécanique avec une vraie vision d'ingénieur : méthode, rigueur et applications.</p>
+        <a class="btn wa full" id="wa2" target="_blank" rel="noopener" href="#" data-i18n="wa">Contacter sur WhatsApp</a>
+      </article>
+
     </div>
   </section>
 
-  <section>
-    <h2>Niveaux</h2>
-    <div class="grid">
-      <div class="card"><h3>1ère année</h3><p>Bien démarrer le lycée.</p></div>
-      <div class="card"><h3>2ème &amp; 3ème année</h3><p>Consolider les bases et progresser.</p></div>
-      <div class="card"><h3>Bac</h3><p>Révisions, séries d'exercices, sujets corrigés.</p></div>
+  <section class="wrap">
+    <h2 data-i18n="whyTitle">Pourquoi nous choisir ?</h2>
+    <div class="grid3">
+      <div class="why"><b>🎯</b><h3 data-i18n="w1">Méthode claire</h3><p data-i18n="w1d">On va à l'essentiel pour que tu comprennes vraiment, pas seulement par cœur.</p></div>
+      <div class="why"><b>📝</b><h3 data-i18n="w2">Exercices corrigés</h3><p data-i18n="w2d">Séries, devoirs et sujets de Bac corrigés pas à pas.</p></div>
+      <div class="why"><b>🤝</b><h3 data-i18n="w3">Suivi personnalisé</h3><p data-i18n="w3d">Le rythme s'adapte à ton niveau, en groupe ou en individuel.</p></div>
+      <div class="why"><b>🏠</b><h3 data-i18n="w4">Présentiel ou en ligne</h3><p data-i18n="w4d">Choisis la formule qui t'arrange, on s'organise ensemble.</p></div>
     </div>
   </section>
 
-  <section class="rtl">
-    <h2>دروس في الرياضيات والإعلامية</h2>
-    <p>دروس لتلاميذ المعاهد من السنة الأولى إلى الباكالوريا، يقدّمها مهندس في الإعلامية. للانضمام اضغط على الزر وادخل إلى مجموعة الواتساب.</p>
+  <section class="wrap levels">
+    <h2 data-i18n="lvlTitle">Pour tous les niveaux</h2>
+    <div class="pills">
+      <span data-i18n="l1">Collège</span>
+      <span data-i18n="l2">Lycée</span>
+      <span data-i18n="l3">Bac</span>
+    </div>
   </section>
 
-  <section class="cta">
-    <h2>Comment participer ?</h2>
-    <p>Clique sur le bouton, rejoins le groupe WhatsApp et tu recevras toutes les infos (horaires, niveaux, tarifs).</p>
-    <a class="btn" id="join2" href="#">Rejoindre le groupe WhatsApp</a>
+  <section class="wrap">
+    <h2 data-i18n="locTitle">Où nous trouver ?</h2>
+    <p class="sub" data-i18n="locSub">Cours en présentiel dans ces zones :</p>
+    <div class="grid3 locs">
+      <div class="card"><i>📍</i><h3 data-i18n="loc1">Korba</h3><p data-i18n="loc1d">Nabeul</p></div>
+      <div class="card"><i>📍</i><h3 data-i18n="loc2">L'Aouina</h3><p data-i18n="loc2d">Tunis</p></div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 data-i18n="finTitle">Prêt à progresser ?</h2>
+      <p data-i18n="finSub">Écris-nous maintenant sur WhatsApp, la première prise de contact est gratuite.</p>
+      <div class="cta-row">
+        <a class="btn wa" id="wa1b" target="_blank" rel="noopener" href="#"><span data-i18n="t1Short">💬 Ayoub</span></a>
+        <a class="btn wa" id="wa2b" target="_blank" rel="noopener" href="#"><span data-i18n="t2Short">💬 Yassine</span></a>
+      </div>
+    </div>
   </section>
 </main>
 
-<footer>© <span id="year"></span> — <span id="name">Ingénieur informatique</span></footer>
+<footer>© <span id="year"></span> — <span data-i18n="brand">Cours Ingénieurs</span> · Tunisie 🇹🇳</footer>
 
-<script>
-// ⚠️ Modifier ici : lien du groupe WhatsApp et nom
-const CONFIG = {
-  whatsappLink: "https://chat.whatsapp.com/REMPLACER_PAR_TON_LIEN",
-  name: "Ingénieur informatique"
-};
-document.getElementById("join").href = CONFIG.whatsappLink;
-document.getElementById("join2").href = CONFIG.whatsappLink;
-document.getElementById("name").textContent = CONFIG.name;
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+<a class="float-wa" id="waFloat" target="_blank" rel="noopener" href="#teachers" aria-label="WhatsApp">💬</a>
+
+<script src="script.js"></script>
 </body>
 </html>

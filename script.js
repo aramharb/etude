@@ -1,6 +1,6 @@
 // ⚠️ MODIFIER ICI : numéros WhatsApp (format international, sans + ni espaces, ex: 21620123456)
 const CONFIG = {
-  teacher1: { phone: " 58078339" },   // Aram
+  teacher1: { phone: "58078339" },    // Aram
   teacher2: { phone: "95718187" }    // Yassine Bourbia
 };
 
@@ -21,7 +21,7 @@ const I18N = {
     teamTitle: "Tes professeurs", teamSub: "Deux ingénieurs passionnés, une seule mission : ta réussite.",
     t1Name: "Aram", t1Role: "Ingénieur en informatique",
     t1Desc: "Algorithmique, programmation, bases de données et maths expliquées simplement avec des exemples concrets.",
-    t2Name: "Yassine", t2Role: "Ingénieur en mécatronique",
+    t2Name: "Yassine Bourbia", t2Role: "Ingénieur en mécatronique",
     t2Desc: "Des cours de maths, physique et mécanique avec une vraie vision d'ingénieur : méthode, rigueur et applications.",
     mMath: "📐 Mathématiques", mCS: "💻 Informatique", mPhys: "⚛️ Physique", mMeca: "⚙️ Mécanique",
     wa: "Contacter sur WhatsApp",
@@ -55,7 +55,7 @@ const I18N = {
     teamTitle: "Your tutors", teamSub: "Two passionate engineers, one mission: your success.",
     t1Name: "Aram", t1Role: "Computer Engineer",
     t1Desc: "Algorithms, programming, databases and math explained simply with real examples.",
-    t2Name: "Yassine", t2Role: "Mechatronics Engineer",
+    t2Name: "Yassine Bourbia", t2Role: "Mechatronics Engineer",
     t2Desc: "Math, physics and mechanics lessons with a true engineer's mindset: method, rigor and real applications.",
     mMath: "📐 Mathematics", mCS: "💻 Computer Science", mPhys: "⚛️ Physics", mMeca: "⚙️ Mechanics",
     wa: "Contact on WhatsApp",
@@ -89,7 +89,7 @@ const I18N = {
     teamTitle: "أساتذتك", teamSub: "مهندسين اثنين، مهمة وحدة: نجاحك.",
     t1Name: "آرام", t1Role: "مهندس إعلامية",
     t1Desc: "خوارزميات، برمجة، قواعد بيانات ورياضيات بشرح بسيط وأمثلة من الواقع.",
-    t2Name: "ياسين ", t2Role: "مهندس ميكاترونيك",
+    t2Name: "ياسين بوربية",t2Role: "مهندس ميكاترونيك",
     t2Desc: "دروس في الرياضيات والفيزياء والميكانيك بعقلية مهندس: منهجية، دقة وتطبيقات.",
     mMath: "📐 رياضيات", mCS: "💻 إعلامية", mPhys: "⚛️ فيزياء", mMeca: "⚙️ ميكانيك",
     wa: "تواصل عبر واتساب",

@@ -107,6 +107,23 @@
     </div>
   </section>
 
+  <section id="resources" class="wrap">
+    <h2 data-i18n="resTitle">📂 Ressources partagées</h2>
+    <p class="sub" data-i18n="resSub">Retrouve nos cours, exercices et corrections sur Google Classroom.</p>
+    <div class="grid3 res-info">
+      <div class="why"><b>📘</b><h3 data-i18n="resCourse">Cours</h3><p data-i18n="resCourseD">Les cours et résumés de chaque chapitre.</p></div>
+      <div class="why"><b>✏️</b><h3 data-i18n="resEx">Exercices</h3><p data-i18n="resExD">Séries d'exercices et sujets pour s'entraîner.</p></div>
+      <div class="why"><b>✅</b><h3 data-i18n="resCor">Corrections</h3><p data-i18n="resCorD">Les corrections détaillées, étape par étape.</p></div>
+    </div>
+    <div class="grid3 res-rooms">
+      <div class="card"><i>📐</i><h3 data-i18n="sMath">Mathématiques</h3><a class="btn wa full" data-room="math" target="_blank" rel="noopener" href="#"></a></div>
+      <div class="card"><i>⚛️</i><h3 data-i18n="sPhys">Physique</h3><a class="btn wa full" data-room="phys" target="_blank" rel="noopener" href="#"></a></div>
+      <div class="card"><i>⚙️</i><h3 data-i18n="sMeca">Mécanique</h3><a class="btn wa full" data-room="meca" target="_blank" rel="noopener" href="#"></a></div>
+      <div class="card"><i>💻</i><h3 data-i18n="sCS">Informatique</h3><a class="btn wa full" data-room="cs" target="_blank" rel="noopener" href="#"></a></div>
+    </div>
+    <p class="res-note" data-i18n="resNote">Besoin du code de la classe ? Écris-nous sur WhatsApp, on te l'envoie.</p>
+  </section>
+
   <section class="wrap">
     <h2 data-i18n="whyTitle">Pourquoi nous choisir ?</h2>
     <div class="grid3">
@@ -115,6 +132,27 @@
       <div class="why"><b>🤝</b><h3 data-i18n="w3">Suivi personnalisé</h3><p data-i18n="w3d">Le rythme s'adapte à ton niveau, en groupe ou en individuel.</p></div>
       <div class="why"><b>🏠</b><h3 data-i18n="w4">Présentiel ou en ligne</h3><p data-i18n="w4d">Choisis la formule qui t'arrange, on s'organise ensemble.</p></div>
     </div>
+  </section>
+
+  <section id="quiz" class="wrap">
+    <h2 data-i18n="qzTitle">🏆 Quiz de la semaine</h2>
+    <p class="sub" data-i18n="qzSub">Réponds juste en premier et gagne une séance gratuite !</p>
+    <form class="quiz" id="qzForm">
+      <div class="quiz-head">
+        <span id="qzWeek"></span>
+        <span id="qzTopic"></span>
+        <span class="quiz-prize" data-i18n="qzPrize">🎁 1 séance gratuite à gagner</span>
+      </div>
+      <p class="quiz-q" id="qzQ"></p>
+      <div class="quiz-opts" id="qzOpts" role="radiogroup" aria-labelledby="qzQ"></div>
+      <div class="quiz-row">
+        <label><span data-i18n="fName">Ton nom</span>
+          <input type="text" id="qzName" required maxlength="60" autocomplete="name"></label>
+        <button type="submit" class="btn wa" data-i18n="qzSend">Envoyer ma réponse sur WhatsApp</button>
+      </div>
+      <p class="quiz-msg" id="qzStatus" role="status" aria-live="polite"></p>
+      <p class="quiz-rules" data-i18n="qzRules">Le premier message reçu avec la bonne réponse gagne la séance gratuite. Un nouveau quiz chaque lundi.</p>
+    </form>
   </section>
 
   <section class="wrap levels">
@@ -159,6 +197,12 @@
       <select id="fClass" required></select></label>
     <label><span data-i18n="fSubject">Matière à étudier</span>
       <select id="fSubject" required></select></label>
+    <label><span data-i18n="fMode">Mode de cours</span>
+      <select id="fMode" required></select></label>
+    <label id="cityRow" hidden><span data-i18n="fCity">Ville</span>
+      <select id="fCity"></select></label>
+    <label><span data-i18n="fAvail">Tes disponibilités</span>
+      <input type="text" id="fAvail" required maxlength="120" data-i18n-ph="fAvailPh"></label>
     <button type="submit" class="btn wa full" data-i18n="fSend">Envoyer sur WhatsApp</button>
   </form>
 </dialog>

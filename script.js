@@ -3,6 +3,13 @@ const CONFIG = {
   1: { phone: "58078339", nameKey: "t1Name", subjects: ["mMath", "mCS"] },           // Aram
   2: { phone: "95718187", nameKey: "t2Name", subjects: ["mMath", "mPhys", "mMeca"] } // Yassine Bourbia
 };
+// ⚠️ MODIFIER ICI : liens Google Classroom (cours, exercices, corrections) par matière. Laisser "" tant que le lien n'est pas prêt.
+const CLASSROOM = {
+  math: "",
+  phys: "",
+  meca: "",
+  cs: ""
+};
 const CLASSES = ["c7", "c8", "c9", "c1", "c2", "c3", "cBac"];
 
 const wa = (phone, text) => {
@@ -45,7 +52,20 @@ const I18N = {
     t1Short: "💬 Aram", t2Short: "💬 Yassine",
     regTitle: "Inscription chez {t}", fName: "Ton nom", fClass: "Ta classe", fSubject: "Matière à étudier", fSend: "Envoyer sur WhatsApp",
     c7: "7ème année", c8: "8ème année", c9: "9ème année", c1: "1ère année secondaire", c2: "2ème année secondaire", c3: "3ème année secondaire", cBac: "Bac",
-    msg: "Bonjour {t}, je m'appelle {n}, je suis en {c} et je souhaite des cours de {s}."
+    resTitle: "📂 Ressources partagées", resSub: "Retrouve nos cours, exercices et corrections sur Google Classroom.",
+    resCourse: "Cours", resCourseD: "Les cours et résumés de chaque chapitre.",
+    resEx: "Exercices", resExD: "Séries d'exercices et sujets pour s'entraîner.",
+    resCor: "Corrections", resCorD: "Les corrections détaillées, étape par étape.",
+    resJoin: "Ouvrir Google Classroom", resSoon: "Bientôt disponible",
+    resNote: "Besoin du code de la classe ? Écris-nous sur WhatsApp, on te l'envoie.",
+    fMode: "Mode de cours", modeP: "Présentiel", modeO: "En ligne", fCity: "Ville",
+    fAvail: "Tes disponibilités", fAvailPh: "Ex : mardi et jeudi après 17h, samedi matin",
+    msg: "Bonjour {t}, je m'appelle {n}, je suis en {c} et je souhaite des cours de {s}. Mode : {m}. Mes disponibilités : {a}.",
+    qzTitle: "🏆 Quiz de la semaine", qzSub: "Réponds juste en premier et gagne une séance gratuite !",
+    qzPrize: "🎁 1 séance gratuite à gagner", qzWeek: "Semaine du {d}", qzSend: "Envoyer ma réponse sur WhatsApp",
+    qzSent: "Réponse envoyée ! Le premier à envoyer la bonne réponse gagne : on te contacte sur WhatsApp.",
+    qzRules: "Le premier message reçu avec la bonne réponse gagne la séance gratuite. Un nouveau quiz chaque lundi.",
+    qzMsg: "Bonjour {t}, quiz de la semaine ({d}) : « {q} » — ma réponse : {a}. Je m'appelle {n}."
   },
   en: {
     brand: "Engineer Tutors",
@@ -80,7 +100,20 @@ const I18N = {
     t1Short: "💬 Aram", t2Short: "💬 Yassine",
     regTitle: "Sign up with {t}", fName: "Your name", fClass: "Your grade", fSubject: "Subject to study", fSend: "Send on WhatsApp",
     c7: "7th grade", c8: "8th grade", c9: "9th grade", c1: "1st year high school", c2: "2nd year high school", c3: "3rd year high school", cBac: "Baccalaureate",
-    msg: "Hello {t}, my name is {n}, I'm in {c} and I'd like lessons in {s}."
+    resTitle: "📂 Shared resources", resSub: "Find our lessons, exercises and corrections on Google Classroom.",
+    resCourse: "Lessons", resCourseD: "Lessons and summaries for every chapter.",
+    resEx: "Exercises", resExD: "Worksheets and past papers to practice.",
+    resCor: "Corrections", resCorD: "Detailed corrections, step by step.",
+    resJoin: "Open Google Classroom", resSoon: "Coming soon",
+    resNote: "Need the class code? Message us on WhatsApp and we'll send it.",
+    fMode: "Lesson format", modeP: "In person", modeO: "Online", fCity: "City",
+    fAvail: "Your availability", fAvailPh: "E.g. Tue & Thu after 5pm, Saturday morning",
+    msg: "Hello {t}, my name is {n}, I'm in {c} and I'd like lessons in {s}. Format: {m}. My availability: {a}.",
+    qzTitle: "🏆 Quiz of the week", qzSub: "Be the first to answer correctly and win a free lesson!",
+    qzPrize: "🎁 1 free lesson to win", qzWeek: "Week of {d}", qzSend: "Send my answer on WhatsApp",
+    qzSent: "Answer sent! The first correct answer wins: we'll contact you on WhatsApp.",
+    qzRules: "The first message received with the right answer wins the free lesson. A new quiz every Monday.",
+    qzMsg: "Hello {t}, quiz of the week ({d}): “{q}” — my answer: {a}. My name is {n}."
   },
   ar: {
     brand: "دروس المهندسين",
@@ -115,13 +148,37 @@ const I18N = {
     t1Short: "💬 آرام", t2Short: "💬 ياسين",
     regTitle: "التسجيل عند {t}", fName: "اسمك", fClass: "قسمك", fSubject: "المادة اللي تحب تقراها", fSend: "ابعث عبر واتساب",
     c7: "السابعة أساسي", c8: "الثامنة أساسي", c9: "التاسعة أساسي", c1: "الأولى ثانوي", c2: "الثانية ثانوي", c3: "الثالثة ثانوي", cBac: "باكالوريا",
-    msg: "مرحبا {t}، اسمي {n}، نقرا في {c} ونحب نتعلم {s}."
+    resTitle: "📂 الموارد المشتركة", resSub: "تلقى الدروس والتمارين والتصحيح متاعنا على Google Classroom.",
+    resCourse: "الدروس", resCourseD: "دروس وملخصات لكل فصل.",
+    resEx: "التمارين", resExD: "سلاسل تمارين وفروض للتدرب.",
+    resCor: "التصحيح", resCorD: "تصحيح مفصل خطوة بخطوة.",
+    resJoin: "افتح Google Classroom", resSoon: "قريبا",
+    resNote: "تحتاج كود القسم؟ اكتبلنا على واتساب ونبعثولك إياه.",
+    fMode: "طريقة الدرس", modeP: "حضوري", modeO: "عن بعد", fCity: "المدينة",
+    fAvail: "أوقات فراغك", fAvailPh: "مثال: الثلاثاء والخميس بعد الخامسة، السبت صباحا",
+    msg: "مرحبا {t}، اسمي {n}، نقرا في {c} ونحب نتعلم {s}. الطريقة: {m}. أوقاتي: {a}.",
+    qzTitle: "🏆 كويز الأسبوع", qzSub: "جاوب صحيح قبل الكل واربح حصة مجانية!",
+    qzPrize: "🎁 حصة مجانية للرابح", qzWeek: "أسبوع {d}", qzSend: "ابعث جوابي عبر واتساب",
+    qzSent: "تم إرسال الجواب! أول واحد يبعث الجواب الصحيح يربح: باش نتواصلو معاك على واتساب.",
+    qzRules: "أول رسالة تتوصل بالجواب الصحيح تربح الحصة المجانية. كويز جديد كل اثنين.",
+    qzMsg: "مرحبا {t}، كويز الأسبوع ({d}): «{q}» — جوابي: {a}. اسمي {n}."
   }
 };
 
 let currentLang = "fr", currentTeacher = null;
 const dlg = document.getElementById("regDialog");
 const fClass = document.getElementById("fClass"), fSubject = document.getElementById("fSubject");
+const fMode = document.getElementById("fMode"), fCity = document.getElementById("fCity"), cityRow = document.getElementById("cityRow");
+const MODES = ["modeP", "modeO"], CITIES = ["loc1", "loc2"];
+const fmt = (s, m) => s.replace(/\{(\w+)\}/g, (_, k) => (m[k] ?? ""));
+
+// ville demandée seulement pour les cours en présentiel
+function syncCity() {
+  const onsite = fMode.value === "modeP";
+  cityRow.hidden = !onsite;
+  fCity.required = onsite;
+}
+fMode.addEventListener("change", syncCity);
 
 // (re)build form texts and options in the current language, keeping the selection
 function fillForm() {
@@ -134,13 +191,16 @@ function fillForm() {
   };
   opts(fClass, CLASSES);
   opts(fSubject, cfg.subjects);
+  opts(fMode, MODES);
+  opts(fCity, CITIES);
+  syncCity();
   document.getElementById("regTitle").textContent = t.regTitle.replace("{t}", t[cfg.nameKey]);
 }
 
 document.querySelectorAll("[data-teacher]").forEach(a => a.addEventListener("click", e => {
   e.preventDefault();
   currentTeacher = a.dataset.teacher;
-  fClass.selectedIndex = -1; fSubject.selectedIndex = -1;
+  fClass.selectedIndex = -1; fSubject.selectedIndex = -1; fMode.selectedIndex = -1; fCity.selectedIndex = -1;
   fillForm();
   dlg.showModal();
 }));
@@ -151,14 +211,104 @@ dlg.addEventListener("close", () => { currentTeacher = null; });
 document.getElementById("regForm").addEventListener("submit", e => {
   e.preventDefault();
   const t = I18N[currentLang], cfg = CONFIG[currentTeacher];
-  const text = t.msg
-    .replace("{t}", t[cfg.nameKey])
-    .replace("{n}", document.getElementById("fName").value.trim())
-    .replace("{c}", t[fClass.value])
-    .replace("{s}", t[fSubject.value].replace(/^\S+\s/, ""));
+  const onsite = fMode.value === "modeP";
+  const text = fmt(t.msg, {
+    t: t[cfg.nameKey],
+    n: document.getElementById("fName").value.trim(),
+    c: t[fClass.value],
+    s: t[fSubject.value].replace(/^\S+\s/, ""),
+    m: t[fMode.value] + (onsite ? " (" + t[fCity.value] + ")" : ""),
+    a: document.getElementById("fAvail").value.trim()
+  });
   window.open(wa(cfg.phone, text), "_blank", "noopener");
   dlg.close();
 });
+
+// ---------- Quiz de la semaine ----------
+// Un quiz par semaine (change chaque lundi), en rotation dans cette liste.
+// teacher = clé de CONFIG qui reçoit les réponses sur WhatsApp.
+// La bonne réponse n'est volontairement PAS dans le code : le professeur la vérifie
+// dans le message reçu, et le premier message avec la bonne réponse gagne la séance gratuite.
+const QUIZZES = [
+  { teacher: 2, topic: "mMath", opts: ["5", "7", "12", "9"],
+    q: { fr: "Soit f(x) = 3x² − 5x + 2. Que vaut f′(2) ?",
+         en: "Let f(x) = 3x² − 5x + 2. What is f′(2)?",
+         ar: "لتكن f(x) = 3x² − 5x + 2. ما قيمة f′(2)؟" } },
+  { teacher: 2, topic: "mPhys", opts: ["20 m/s²", "12 m/s²", "5 m/s²", "0,2 m/s²"],
+    q: { fr: "Une force résultante de 10 N agit sur un objet de 2 kg. Quelle est son accélération ?",
+         en: "A net force of 10 N acts on a 2 kg object. What is its acceleration?",
+         ar: "قوة محصلة قدرها 10 N تؤثر على جسم كتلته 2 kg. ما تسارعه؟" } },
+  { teacher: 1, topic: "mCS", opts: ["6", "8", "24", "12"],
+    q: { fr: "Que vaut x à la fin ?  x = 2 ; pour i de 1 à 3 : x = x × i",
+         en: "What is x at the end?  x = 2 ; for i from 1 to 3: x = x × i",
+         ar: "شنوة قيمة x في الأخير؟  x = 2 ؛ من i = 1 إلى 3 : x = x × i" } },
+  { teacher: 1, topic: "mMath", opts: ["0", "1", "2", "∞"],
+    q: { fr: "Combien de solutions réelles a l'équation x² + 1 = 0 ?",
+         en: "How many real solutions does the equation x² + 1 = 0 have?",
+         ar: "قداش من حل حقيقي للمعادلة x² + 1 = 0 ؟" } }
+];
+const LOCALES = { fr: "fr-FR", en: "en-GB", ar: "ar-TN" };
+const qzOpts = document.getElementById("qzOpts"), qzStatus = document.getElementById("qzStatus");
+let quizSent = false;
+
+// semaine courante (début = lundi) et quiz correspondant
+function quizState() {
+  const now = new Date();
+  const days = Math.floor((now.getTime() - now.getTimezoneOffset() * 60000) / 86400000);
+  const week = Math.floor((days + 3) / 7);              // +3 : le 1er janvier 1970 était un jeudi
+  const monday = new Date((week * 7 - 3) * 86400000);   // lundi de la semaine (minuit UTC = date locale)
+  const date = monday.toLocaleDateString(LOCALES[currentLang], { day: "numeric", month: "long", timeZone: "UTC" });
+  return { qz: QUIZZES[week % QUIZZES.length], date };
+}
+
+function renderQuiz() {
+  const t = I18N[currentLang], { qz, date } = quizState();
+  const prev = qzOpts.querySelector("input:checked");
+  const prevIdx = prev ? prev.value : null;
+  document.getElementById("qzWeek").textContent = fmt(t.qzWeek, { d: date });
+  document.getElementById("qzTopic").textContent = t[qz.topic];
+  document.getElementById("qzQ").textContent = qz.q[currentLang];
+  qzStatus.textContent = quizSent ? t.qzSent : "";
+  qzOpts.innerHTML = "";
+  qz.opts.forEach((o, i) => {
+    const label = document.createElement("label"); label.className = "opt";
+    const radio = document.createElement("input");
+    radio.type = "radio"; radio.name = "qz"; radio.value = i; radio.required = true;
+    radio.checked = String(i) === prevIdx;
+    const letter = document.createElement("b"); letter.textContent = "ABCD"[i];
+    const txt = document.createElement("span"); txt.textContent = o; txt.dir = "ltr";
+    label.append(radio, letter, txt);
+    qzOpts.append(label);
+  });
+}
+
+document.getElementById("qzForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const t = I18N[currentLang], { qz, date } = quizState(), cfg = CONFIG[qz.teacher];
+  const text = fmt(t.qzMsg, {
+    t: t[cfg.nameKey],
+    d: date,
+    q: qz.q[currentLang],
+    a: qz.opts[+qzOpts.querySelector("input:checked").value],
+    n: document.getElementById("qzName").value.trim()
+  });
+  window.open(wa(cfg.phone, text), "_blank", "noopener");
+  quizSent = true;
+  qzStatus.textContent = t.qzSent;
+});
+
+// liens Google Classroom : bouton actif seulement si le lien est renseigné dans CLASSROOM
+function renderRooms() {
+  const t = I18N[currentLang];
+  document.querySelectorAll("[data-room]").forEach(a => {
+    const url = CLASSROOM[a.dataset.room];
+    a.href = url || "#";
+    a.classList.toggle("disabled", !url);
+    a.toggleAttribute("aria-disabled", !url);
+    a.tabIndex = url ? 0 : -1;
+    a.textContent = url ? t.resJoin : t.resSoon;
+  });
+}
 
 function setLang(lang) {
   currentLang = lang;
@@ -167,8 +317,11 @@ function setLang(lang) {
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t[el.dataset.i18n]; });
   document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t[el.dataset.i18nHtml]; });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t[el.dataset.i18nPh]; });
   document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
   if (currentTeacher) fillForm();
+  renderQuiz();
+  renderRooms();
   document.title = t.brand + " – " + t.badge.replace(/^\S+\s/, "");
   try { localStorage.setItem("lang", lang); } catch (e) {}
 }
@@ -181,7 +334,7 @@ setLang(I18N[saved] ? saved : "fr");
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // scroll reveal
-document.querySelectorAll(".teacher,.card,.why,.pills span,section h2").forEach(el => el.classList.add("reveal"));
+document.querySelectorAll(".teacher,.card,.why,.quiz,.pills span,section h2").forEach(el => el.classList.add("reveal"));
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
 }), { threshold: .15 });

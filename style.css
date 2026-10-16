@@ -102,7 +102,7 @@ footer{text-align:center;color:var(--muted);padding:34px 0 100px;font-size:.88re
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 
 /* registration modal */
-.reg{overflow:visible;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg2);color:var(--fg);padding:30px 26px;width:min(420px,calc(100% - 32px));box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.reg{overflow:auto;max-height:calc(100dvh - 32px);border:1px solid var(--line);border-radius:var(--radius);background:var(--bg2);color:var(--fg);padding:30px 26px;width:min(420px,calc(100% - 32px));box-shadow:0 30px 70px rgba(0,0,0,.6)}
 .reg::backdrop{background:rgba(7,11,26,.75);backdrop-filter:blur(4px)}
 .reg h3{margin:0 0 18px;font-size:1.3rem;padding-inline-end:36px}
 .reg label{display:block;margin-bottom:14px;font-weight:600;font-size:.9rem}
@@ -111,6 +111,39 @@ footer{text-align:center;color:var(--muted);padding:34px 0 100px;font-size:.88re
 .reg input:focus,.reg select:focus{outline:2px solid var(--gold);outline-offset:1px}
 .reg .btn{width:100%;margin-top:6px;cursor:pointer;font:inherit;font-weight:700}
 .reg .close{position:absolute;top:16px;inset-inline-end:16px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+
+/* shared resources */
+.res-info{margin-bottom:20px}
+.res-rooms{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.res-rooms .card{text-align:center}
+.res-rooms .btn{margin-top:16px;padding:12px 18px;font-size:.92rem}
+.btn.disabled{opacity:.45;pointer-events:none;box-shadow:none;filter:grayscale(.6)}
+.res-note{text-align:center;color:var(--muted);font-size:.9rem;margin:26px 0 0}
+
+/* quiz of the week */
+.quiz{max-width:720px;margin:36px auto 0;padding:30px 26px;border-radius:var(--radius);border:1px solid rgba(255,200,61,.35);
+  background:linear-gradient(160deg,rgba(255,200,61,.1),rgba(124,92,255,.08) 60%,rgba(255,255,255,.03));backdrop-filter:blur(8px);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.quiz-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
+.quiz-head span{font-size:.82rem;font-weight:600;padding:5px 14px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
+.quiz-head .quiz-prize{margin-inline-start:auto;color:var(--gold);background:rgba(255,200,61,.1);border-color:rgba(255,200,61,.4)}
+.quiz-q{font-size:1.2rem;font-weight:700;margin:0 0 20px}
+.quiz-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:22px}
+.opt{position:relative;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.05);cursor:pointer;transition:.2s}
+.opt:hover{border-color:rgba(255,200,61,.5);background:rgba(255,255,255,.09)}
+.opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.opt b{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);font-size:.85rem}
+.opt span{unicode-bidi:isolate}
+.opt:has(input:checked){border-color:var(--gold);background:rgba(255,200,61,.14)}
+.opt:has(input:checked) b{background:linear-gradient(135deg,var(--gold),var(--coral));color:#2a1500}
+.opt:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.quiz-row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.quiz-row label{flex:1 1 200px;font-weight:600;font-size:.9rem}
+.quiz-row input{display:block;width:100%;margin-top:6px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--fg);font:inherit}
+.quiz-row input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.quiz-row .btn{flex:1 1 220px;cursor:pointer;font:inherit;font-weight:700;text-align:center}
+.quiz-msg{margin:14px 0 0;min-height:1.4em;text-align:center;color:var(--gold);font-weight:600}
+.quiz-rules{margin:6px 0 0;text-align:center;color:var(--muted);font-size:.85rem}
+.reg [hidden]{display:none}
 
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}

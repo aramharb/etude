@@ -1,8 +1,9 @@
 // ⚠️ MODIFIER ICI : numéros WhatsApp (format international, sans + ni espaces, ex: 21620123456)
 const CONFIG = {
-  teacher1: { phone: "58078339" },    // Aram
-  teacher2: { phone: "95718187" }    // Yassine Bourbia
+  1: { phone: "58078339", nameKey: "t1Name", subjects: ["mMath", "mCS"] },           // Aram
+  2: { phone: "95718187", nameKey: "t2Name", subjects: ["mMath", "mPhys", "mMeca"] } // Yassine Bourbia
 };
+const CLASSES = ["c7", "c8", "c9", "c1", "c2", "c3", "cBac"];
 
 const wa = (phone, text) => {
   let n = phone.replace(/\D/g, "");
@@ -42,8 +43,9 @@ const I18N = {
     finTitle: "Prêt à progresser ?",
     finSub: "Écris-nous maintenant sur WhatsApp, la première prise de contact est gratuite.",
     t1Short: "💬 Aram", t2Short: "💬 Yassine",
-    msg1: "Bonjour Aram, je suis intéressé par vos cours particuliers.",
-    msg2: "Bonjour Yassine, je suis intéressé par vos cours particuliers."
+    regTitle: "Inscription chez {t}", fName: "Ton nom", fClass: "Ta classe", fSubject: "Matière à étudier", fSend: "Envoyer sur WhatsApp",
+    c7: "7ème année", c8: "8ème année", c9: "9ème année", c1: "1ère année secondaire", c2: "2ème année secondaire", c3: "3ème année secondaire", cBac: "Bac",
+    msg: "Bonjour {t}, je m'appelle {n}, je suis en {c} et je souhaite des cours de {s}."
   },
   en: {
     brand: "Engineer Tutors",
@@ -76,8 +78,9 @@ const I18N = {
     finTitle: "Ready to improve?",
     finSub: "Message us now on WhatsApp, the first contact is free.",
     t1Short: "💬 Aram", t2Short: "💬 Yassine",
-    msg1: "Hello Aram, I'm interested in your private lessons.",
-    msg2: "Hello Yassine, I'm interested in your private lessons."
+    regTitle: "Sign up with {t}", fName: "Your name", fClass: "Your grade", fSubject: "Subject to study", fSend: "Send on WhatsApp",
+    c7: "7th grade", c8: "8th grade", c9: "9th grade", c1: "1st year high school", c2: "2nd year high school", c3: "3rd year high school", cBac: "Baccalaureate",
+    msg: "Hello {t}, my name is {n}, I'm in {c} and I'd like lessons in {s}."
   },
   ar: {
     brand: "دروس المهندسين",
@@ -110,21 +113,62 @@ const I18N = {
     finTitle: "حاضر تتحسن؟",
     finSub: "اكتبلنا توا على واتساب، أول تواصل مجاني.",
     t1Short: "💬 آرام", t2Short: "💬 ياسين",
-    msg1: "مرحبا آرام، أنا مهتم بالدروس الخصوصية.",
-    msg2: "مرحبا ياسين، أنا مهتم بالدروس الخصوصية."
+    regTitle: "التسجيل عند {t}", fName: "اسمك", fClass: "قسمك", fSubject: "المادة اللي تحب تقراها", fSend: "ابعث عبر واتساب",
+    c7: "السابعة أساسي", c8: "الثامنة أساسي", c9: "التاسعة أساسي", c1: "الأولى ثانوي", c2: "الثانية ثانوي", c3: "الثالثة ثانوي", cBac: "باكالوريا",
+    msg: "مرحبا {t}، اسمي {n}، نقرا في {c} ونحب نتعلم {s}."
   }
 };
 
+let currentLang = "fr", currentTeacher = null;
+const dlg = document.getElementById("regDialog");
+const fClass = document.getElementById("fClass"), fSubject = document.getElementById("fSubject");
+
+// (re)build form texts and options in the current language, keeping the selection
+function fillForm() {
+  const t = I18N[currentLang], cfg = CONFIG[currentTeacher];
+  const opts = (sel, keys) => {
+    const prev = sel.selectedIndex;
+    sel.innerHTML = "";
+    keys.forEach(k => sel.add(new Option(t[k], k)));
+    sel.selectedIndex = Math.max(prev, 0);
+  };
+  opts(fClass, CLASSES);
+  opts(fSubject, cfg.subjects);
+  document.getElementById("regTitle").textContent = t.regTitle.replace("{t}", t[cfg.nameKey]);
+}
+
+document.querySelectorAll("[data-teacher]").forEach(a => a.addEventListener("click", e => {
+  e.preventDefault();
+  currentTeacher = a.dataset.teacher;
+  fClass.selectedIndex = -1; fSubject.selectedIndex = -1;
+  fillForm();
+  dlg.showModal();
+}));
+document.getElementById("regClose").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+dlg.addEventListener("close", () => { currentTeacher = null; });
+
+document.getElementById("regForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const t = I18N[currentLang], cfg = CONFIG[currentTeacher];
+  const text = t.msg
+    .replace("{t}", t[cfg.nameKey])
+    .replace("{n}", document.getElementById("fName").value.trim())
+    .replace("{c}", t[fClass.value])
+    .replace("{s}", t[fSubject.value].replace(/^\S+\s/, ""));
+  window.open(wa(cfg.phone, text), "_blank", "noopener");
+  dlg.close();
+});
+
 function setLang(lang) {
+  currentLang = lang;
   const t = I18N[lang];
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t[el.dataset.i18n]; });
   document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t[el.dataset.i18nHtml]; });
   document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
-  const l1 = wa(CONFIG.teacher1.phone, t.msg1), l2 = wa(CONFIG.teacher2.phone, t.msg2);
-  ["wa1", "wa1b"].forEach(id => document.getElementById(id).href = l1);
-  ["wa2", "wa2b"].forEach(id => document.getElementById(id).href = l2);
+  if (currentTeacher) fillForm();
   document.title = t.brand + " – " + t.badge.replace(/^\S+\s/, "");
   try { localStorage.setItem("lang", lang); } catch (e) {}
 }

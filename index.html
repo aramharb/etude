@@ -76,7 +76,7 @@
           <span data-i18n="mCS">💻 Informatique</span>
         </div>
         <p class="desc" data-i18n="t1Desc">Algorithmique, programmation, bases de données et maths expliquées simplement avec des exemples concrets.</p>
-        <a class="btn wa full" id="wa1" target="_blank" rel="noopener" href="#" data-i18n="wa">Contacter sur WhatsApp</a>
+        <a class="btn wa full" data-teacher="1" href="#" data-i18n="wa">Contacter sur WhatsApp</a>
       </article>
 
       <article class="teacher">
@@ -91,7 +91,7 @@
           <span data-i18n="mMeca">⚙️ Mécanique</span>
         </div>
         <p class="desc" data-i18n="t2Desc">Des cours de maths, physique et mécanique avec une vraie vision d'ingénieur : méthode, rigueur et applications.</p>
-        <a class="btn wa full" id="wa2" target="_blank" rel="noopener" href="#" data-i18n="wa">Contacter sur WhatsApp</a>
+        <a class="btn wa full" data-teacher="2" href="#" data-i18n="wa">Contacter sur WhatsApp</a>
       </article>
 
     </div>
@@ -140,8 +140,8 @@
       <h2 data-i18n="finTitle">Prêt à progresser ?</h2>
       <p data-i18n="finSub">Écris-nous maintenant sur WhatsApp, la première prise de contact est gratuite.</p>
       <div class="cta-row">
-        <a class="btn wa" id="wa1b" target="_blank" rel="noopener" href="#"><span data-i18n="t1Short">💬 Aram</span></a>
-        <a class="btn wa" id="wa2b" target="_blank" rel="noopener" href="#"><span data-i18n="t2Short">💬 Yassine</span></a>
+        <a class="btn wa" data-teacher="1" href="#"><span data-i18n="t1Short">💬 Aram</span></a>
+        <a class="btn wa" data-teacher="2" href="#"><span data-i18n="t2Short">💬 Yassine</span></a>
       </div>
     </div>
   </section>
@@ -149,7 +149,21 @@
 
 <footer>© <span id="year"></span> — <span data-i18n="brand">Cours Ingénieurs</span> · Tunisie 🇹🇳</footer>
 
-<a class="float-wa" id="waFloat" target="_blank" rel="noopener" href="#teachers" aria-label="WhatsApp">💬</a>
+<dialog id="regDialog" class="reg">
+  <form id="regForm" method="dialog">
+    <button type="button" class="close" id="regClose" aria-label="Close">✕</button>
+    <h3 id="regTitle"></h3>
+    <label><span data-i18n="fName">Ton nom</span>
+      <input type="text" id="fName" required maxlength="60" autocomplete="name"></label>
+    <label><span data-i18n="fClass">Ta classe</span>
+      <select id="fClass" required></select></label>
+    <label><span data-i18n="fSubject">Matière à étudier</span>
+      <select id="fSubject" required></select></label>
+    <button type="submit" class="btn wa full" data-i18n="fSend">Envoyer sur WhatsApp</button>
+  </form>
+</dialog>
+
+<a class="float-wa"id="waFloat" target="_blank" rel="noopener" href="#teachers" aria-label="WhatsApp">💬</a>
 
 <script src="script.js"></script>
 </body>

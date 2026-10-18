@@ -118,6 +118,10 @@ footer{text-align:center;color:var(--muted);padding:34px 0 100px;font-size:.88re
 .res-rooms .card{text-align:center}
 .res-rooms .btn{margin-top:16px;padding:12px 18px;font-size:.92rem}
 .btn.disabled{opacity:.45;pointer-events:none;box-shadow:none;filter:grayscale(.6)}
+.prices .card{text-align:center}
+.card p.price{font-size:1.8rem;font-weight:800;color:var(--text,#fff);margin-top:6px}
+.price-info{list-style:none;max-width:640px;margin:26px auto 0;padding:0;display:grid;gap:10px;color:var(--muted);font-size:.95rem}
+.price-info li{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 18px}
 .res-note{text-align:center;color:var(--muted);font-size:.9rem;margin:26px 0 0}
 
 /* quiz of the week */
@@ -136,6 +140,7 @@ footer{text-align:center;color:var(--muted);padding:34px 0 100px;font-size:.88re
 .opt:has(input:checked){border-color:var(--gold);background:rgba(255,200,61,.14)}
 .opt:has(input:checked) b{background:linear-gradient(135deg,var(--gold),var(--coral));color:#2a1500}
 .opt:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.quiz-img{display:block;width:100%;height:auto;border-radius:14px;margin:0 0 22px;border:1px solid var(--line)}
 .quiz-row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
 .quiz-row label{flex:1 1 200px;font-weight:600;font-size:.9rem}
 .quiz-row input{display:block;width:100%;margin-top:6px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--fg);font:inherit}

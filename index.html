@@ -124,6 +124,21 @@
     <p class="res-note" data-i18n="resNote">Besoin du code de la classe ? Écris-nous sur WhatsApp, on te l'envoie.</p>
   </section>
 
+  <section id="pricing" class="wrap">
+    <h2 data-i18n="prTitle">💰 Tarifs</h2>
+    <p class="sub" data-i18n="prSub">🎁 La première séance est gratuite pour tous !</p>
+    <div class="grid3 prices">
+      <div class="card"><i>🎁</i><h3 data-i18n="prFree">Première séance</h3><p class="price" data-i18n="prFreeP">Gratuite</p></div>
+      <div class="card"><i>1️⃣</i><h3 data-i18n="prOne">Séance unique</h3><p class="price">15 DT</p></div>
+      <div class="card"><i>4️⃣</i><h3 data-i18n="prFour">Pack 4 séances</h3><p class="price">50 DT</p></div>
+    </div>
+    <ul class="price-info">
+      <li data-i18n="prMin">👥 Minimum 5 personnes par groupe</li>
+      <li data-i18n="prMax">👥 Maximum 10 personnes par groupe</li>
+      <li data-i18n="prInvite">🤝 On organise la 1ère séance : invitez vos amis et collègues pour constituer le groupe !</li>
+    </ul>
+  </section>
+
   <section class="wrap">
     <h2 data-i18n="whyTitle">Pourquoi nous choisir ?</h2>
     <div class="grid3">
@@ -144,8 +159,10 @@
         <span class="quiz-prize" data-i18n="qzPrize">🎁 1 séance gratuite à gagner</span>
       </div>
       <p class="quiz-q" id="qzQ"></p>
-      <div class="quiz-opts" id="qzOpts" role="radiogroup" aria-labelledby="qzQ"></div>
+      <img class="quiz-img" id="qzImg" src="photos/probleme-semaine.png" alt="">
       <div class="quiz-row">
+        <label><span data-i18n="qzAns">Ta réponse</span>
+          <input type="text" id="qzAns" required maxlength="60" autocomplete="off" inputmode="decimal"></label>
         <label><span data-i18n="fName">Ton nom</span>
           <input type="text" id="qzName" required maxlength="60" autocomplete="name"></label>
         <button type="submit" class="btn wa" data-i18n="qzSend">Envoyer ma réponse sur WhatsApp</button>

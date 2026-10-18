@@ -57,10 +57,15 @@ const I18N = {
     resEx: "Exercices", resExD: "Séries d'exercices et sujets pour s'entraîner.",
     resCor: "Corrections", resCorD: "Les corrections détaillées, étape par étape.",
     resJoin: "Ouvrir Google Classroom", resSoon: "Bientôt disponible",
+    prTitle: "💰 Tarifs", prSub: "🎁 La première séance est gratuite pour tous !",
+    prFree: "Première séance", prFreeP: "Gratuite", prOne: "Séance unique", prFour: "Pack 4 séances",
+    prMin: "👥 Minimum 5 personnes par groupe", prMax: "👥 Maximum 10 personnes par groupe",
+    prInvite: "🤝 On organise la 1ère séance : invitez vos amis et collègues pour constituer le groupe !",
     resNote: "Besoin du code de la classe ? Écris-nous sur WhatsApp, on te l'envoie.",
     fMode: "Mode de cours", modeP: "Présentiel", modeO: "En ligne", fCity: "Ville",
     fAvail: "Tes disponibilités", fAvailPh: "Ex : mardi et jeudi après 17h, samedi matin",
     msg: "Bonjour {t}, je m'appelle {n}, je suis en {c} et je souhaite des cours de {s}. Mode : {m}. Mes disponibilités : {a}.",
+    qzAns: "Ta réponse",
     qzTitle: "🏆 Quiz de la semaine", qzSub: "Réponds juste en premier et gagne une séance gratuite !",
     qzPrize: "🎁 1 séance gratuite à gagner", qzWeek: "Semaine du {d}", qzSend: "Envoyer ma réponse sur WhatsApp",
     qzSent: "Réponse envoyée ! Le premier à envoyer la bonne réponse gagne : on te contacte sur WhatsApp.",
@@ -105,10 +110,15 @@ const I18N = {
     resEx: "Exercises", resExD: "Worksheets and past papers to practice.",
     resCor: "Corrections", resCorD: "Detailed corrections, step by step.",
     resJoin: "Open Google Classroom", resSoon: "Coming soon",
+    prTitle: "💰 Pricing", prSub: "🎁 The first lesson is free for everyone!",
+    prFree: "First lesson", prFreeP: "Free", prOne: "Single lesson", prFour: "Pack of 4 lessons",
+    prMin: "👥 Minimum 5 people per group", prMax: "👥 Maximum 10 people per group",
+    prInvite: "🤝 We organise the 1st lesson: invite your friends and classmates to build the group!",
     resNote: "Need the class code? Message us on WhatsApp and we'll send it.",
     fMode: "Lesson format", modeP: "In person", modeO: "Online", fCity: "City",
     fAvail: "Your availability", fAvailPh: "E.g. Tue & Thu after 5pm, Saturday morning",
     msg: "Hello {t}, my name is {n}, I'm in {c} and I'd like lessons in {s}. Format: {m}. My availability: {a}.",
+    qzAns: "Your answer",
     qzTitle: "🏆 Quiz of the week", qzSub: "Be the first to answer correctly and win a free lesson!",
     qzPrize: "🎁 1 free lesson to win", qzWeek: "Week of {d}", qzSend: "Send my answer on WhatsApp",
     qzSent: "Answer sent! The first correct answer wins: we'll contact you on WhatsApp.",
@@ -153,10 +163,15 @@ const I18N = {
     resEx: "التمارين", resExD: "سلاسل تمارين وفروض للتدرب.",
     resCor: "التصحيح", resCorD: "تصحيح مفصل خطوة بخطوة.",
     resJoin: "افتح Google Classroom", resSoon: "قريبا",
+    prTitle: "💰 الأسعار", prSub: "🎁 الحصة الأولى مجانية للجميع!",
+    prFree: "الحصة الأولى", prFreeP: "مجانية", prOne: "حصة واحدة", prFour: "باقة 4 حصص",
+    prMin: "👥 الحد الأدنى 5 أشخاص في المجموعة", prMax: "👥 الحد الأقصى 10 أشخاص في المجموعة",
+    prInvite: "🤝 نحن ننظمو الحصة الأولى: ادعو أصحابكم وزملاءكم باش نكونو المجموعة!",
     resNote: "تحتاج كود القسم؟ اكتبلنا على واتساب ونبعثولك إياه.",
     fMode: "طريقة الدرس", modeP: "حضوري", modeO: "عن بعد", fCity: "المدينة",
     fAvail: "أوقات فراغك", fAvailPh: "مثال: الثلاثاء والخميس بعد الخامسة، السبت صباحا",
     msg: "مرحبا {t}، اسمي {n}، نقرا في {c} ونحب نتعلم {s}. الطريقة: {m}. أوقاتي: {a}.",
+    qzAns: "جوابك",
     qzTitle: "🏆 كويز الأسبوع", qzSub: "جاوب صحيح قبل الكل واربح حصة مجانية!",
     qzPrize: "🎁 حصة مجانية للرابح", qzWeek: "أسبوع {d}", qzSend: "ابعث جوابي عبر واتساب",
     qzSent: "تم إرسال الجواب! أول واحد يبعث الجواب الصحيح يربح: باش نتواصلو معاك على واتساب.",
@@ -229,26 +244,15 @@ document.getElementById("regForm").addEventListener("submit", e => {
 // teacher = clé de CONFIG qui reçoit les réponses sur WhatsApp.
 // La bonne réponse n'est volontairement PAS dans le code : le professeur la vérifie
 // dans le message reçu, et le premier message avec la bonne réponse gagne la séance gratuite.
+// Chaque quiz a une image (photos/…) et une réponse libre.
 const QUIZZES = [
-  { teacher: 2, topic: "mMath", opts: ["5", "7", "12", "9"],
-    q: { fr: "Soit f(x) = 3x² − 5x + 2. Que vaut f′(2) ?",
-         en: "Let f(x) = 3x² − 5x + 2. What is f′(2)?",
-         ar: "لتكن f(x) = 3x² − 5x + 2. ما قيمة f′(2)؟" } },
-  { teacher: 2, topic: "mPhys", opts: ["20 m/s²", "12 m/s²", "5 m/s²", "0,2 m/s²"],
-    q: { fr: "Une force résultante de 10 N agit sur un objet de 2 kg. Quelle est son accélération ?",
-         en: "A net force of 10 N acts on a 2 kg object. What is its acceleration?",
-         ar: "قوة محصلة قدرها 10 N تؤثر على جسم كتلته 2 kg. ما تسارعه؟" } },
-  { teacher: 1, topic: "mCS", opts: ["6", "8", "24", "12"],
-    q: { fr: "Que vaut x à la fin ?  x = 2 ; pour i de 1 à 3 : x = x × i",
-         en: "What is x at the end?  x = 2 ; for i from 1 to 3: x = x × i",
-         ar: "شنوة قيمة x في الأخير؟  x = 2 ؛ من i = 1 إلى 3 : x = x × i" } },
-  { teacher: 1, topic: "mMath", opts: ["0", "1", "2", "∞"],
-    q: { fr: "Combien de solutions réelles a l'équation x² + 1 = 0 ?",
-         en: "How many real solutions does the equation x² + 1 = 0 have?",
-         ar: "قداش من حل حقيقي للمعادلة x² + 1 = 0 ؟" } }
+  { teacher: 2, topic: "mMath", img: "photos/probleme-semaine.png",
+    q: { fr: "Le triangle rose a une aire de 1 cm² et EF = 2 cm. Quelle est l'aire du triangle bleu (en cm²) ?",
+         en: "The pink triangle has an area of 1 cm² and EF = 2 cm. What is the area of the blue triangle (in cm²)?",
+         ar: "مساحة المثلث الوردي 1 cm² و EF = 2 cm. ما مساحة المثلث الأزرق (بـ cm²)؟" } }
 ];
 const LOCALES = { fr: "fr-FR", en: "en-GB", ar: "ar-TN" };
-const qzOpts = document.getElementById("qzOpts"), qzStatus = document.getElementById("qzStatus");
+const qzStatus = document.getElementById("qzStatus");
 let quizSent = false;
 
 // semaine courante (début = lundi) et quiz correspondant
@@ -263,23 +267,12 @@ function quizState() {
 
 function renderQuiz() {
   const t = I18N[currentLang], { qz, date } = quizState();
-  const prev = qzOpts.querySelector("input:checked");
-  const prevIdx = prev ? prev.value : null;
+  const img = document.getElementById("qzImg");
+  img.src = qz.img; img.alt = qz.q[currentLang];
   document.getElementById("qzWeek").textContent = fmt(t.qzWeek, { d: date });
   document.getElementById("qzTopic").textContent = t[qz.topic];
   document.getElementById("qzQ").textContent = qz.q[currentLang];
   qzStatus.textContent = quizSent ? t.qzSent : "";
-  qzOpts.innerHTML = "";
-  qz.opts.forEach((o, i) => {
-    const label = document.createElement("label"); label.className = "opt";
-    const radio = document.createElement("input");
-    radio.type = "radio"; radio.name = "qz"; radio.value = i; radio.required = true;
-    radio.checked = String(i) === prevIdx;
-    const letter = document.createElement("b"); letter.textContent = "ABCD"[i];
-    const txt = document.createElement("span"); txt.textContent = o; txt.dir = "ltr";
-    label.append(radio, letter, txt);
-    qzOpts.append(label);
-  });
 }
 
 document.getElementById("qzForm").addEventListener("submit", e => {
@@ -289,7 +282,7 @@ document.getElementById("qzForm").addEventListener("submit", e => {
     t: t[cfg.nameKey],
     d: date,
     q: qz.q[currentLang],
-    a: qz.opts[+qzOpts.querySelector("input:checked").value],
+    a: document.getElementById("qzAns").value.trim(),
     n: document.getElementById("qzName").value.trim()
   });
   window.open(wa(cfg.phone, text), "_blank", "noopener");
